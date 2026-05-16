@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0"> 
 
   <link rel="icon" type="image/png" sizes="32x32" href="./assets/images/favicon-32x32.png">
-  
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700;800&display=swap" rel="stylesheet">
   <title>Frontend Mentor | News homepage</title>
 
   <link rel="stylesheet" href="NewsHomapageStyle.css">
@@ -55,15 +55,18 @@
 
 <aside class="news-sidebar">
   <h1>New</h1>
-
+<div class="news-item">
   <h2> Hydrogen VS Electric Cars</h2>
  <p> Will hydrogen-fueled cars ever catch up to EVs? </p>
-
+</div>
+<div class="news-item">
  <h2> The Downsides of AI Artistry </h2>
  <p>What are the possible adverse effects of on-demand AI image generation? </p>
-
+</div>
+<div class="news-item">
   <h2> Is VC Funding Drying Up?</h2>
  <p> Private funding by VC firms is down 50% YOY. We take a look at what that means. </p>
+ </div>
 </aside>
 </div>
 
@@ -114,7 +117,9 @@
   <script>
   const menuBtn = document.querySelector(".menu-btn");
   const menu = document.querySelector(".linki");
-
+  const isOpen = menu.classList.contains("active");
+  menuBtn.setAttribute("aria-expanded", isOpen);
+  menuBtn.setAttribute("aria-expanded", "false");
   menuBtn.addEventListener("click", () => {
     menu.classList.toggle("active");
 
