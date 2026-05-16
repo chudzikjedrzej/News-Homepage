@@ -7,7 +7,7 @@
 body{
   font-family: Arial, Helvetica, sans-serif;
   background:white;
-  color:#111;
+  color:hsl(240, 100%, 5%);
   line-height:1.6;
 }
 
@@ -19,21 +19,21 @@ img{
 a{
   text-decoration:none;
   color:hsl(236, 13%, 42%);
-  transition:0.3s;
+  transition:0.2s ease;
 }
 
 a:hover{
   color:hsl(5, 85%, 63%);
 }
 
+/*  ----------------------------------   Layout  ----------------------------------   */
 main{
-  max-width:70rem;
+  max-width:1100px;
   margin:0 auto;
-  padding:1.5rem;
+  padding:2rem 1rem;
 }
 
-/*   ----------------------------------   Nav   ----------------------------------   */
-
+/*   ----------------------------------  Nav  ----------------------------------   */
 .nav{
   display:flex;
   justify-content:space-between;
@@ -49,37 +49,33 @@ main{
 
 .menu-btn{
   display:none;
+  font-size:2rem;
   background:none;
   border:none;
-  font-size:2rem;
   cursor:pointer;
 }
 
-/*   ----------------------------------   Top   ----------------------------------   */
-
+/*   ----------------------------------  Top Section  ----------------------------------   */
 .top-section{
-  display:flex;
-  flex-direction:column;
+  display:grid;
+  grid-template-columns: 2fr 1fr;
   gap:2rem;
+  align-items:start;
 }
 
-.hero{
-  flex:2;
-}
-
+/*   ----------------------------------  Hero  ----------------------------------   */
 .hero::before{
   content:"";
   display:block;
-  height:300px;
-  background:url("image-web-3-mobile.jpg") no-repeat center;
-  background-size:cover;
+  aspect-ratio: 16 / 9;
+  background:url("image-web-3-mobile.jpg") center/cover no-repeat;
   margin-bottom:1.5rem;
 }
 
 .hero-content{
-  display:flex;
-  flex-direction:column;
-  gap:1.5rem;
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:2rem;
 }
 
 .title h1{
@@ -88,11 +84,8 @@ main{
   font-weight:800;
 }
 
-.text-area{
-  color:hsl(236, 13%, 42%);
-}
-
 .text-area p{
+  color:hsl(236, 13%, 42%);
   margin-bottom:1.5rem;
 }
 
@@ -105,20 +98,19 @@ button{
   letter-spacing:4px;
   font-weight:700;
   cursor:pointer;
-  transition:0.3s;
+  transition:0.2s ease;
 }
 
 button:hover{
-  background:black;
+  background:hsl(240, 100%, 5%);
   color:white;
 }
 
-/*   ----------------------------------   Sidebar   ----------------------------------   */
-
+/*   ----------------------------------  Sidebar  ----------------------------------   */
 .news-sidebar{
   background:hsl(240, 100%, 5%);
   color:white;
-  padding:1.5rem;
+  padding:2rem;
 }
 
 .news-sidebar h1{
@@ -128,10 +120,9 @@ button:hover{
 }
 
 .news-sidebar h2{
-  font-size:1.1rem;
+  font-size:1rem;
   margin-bottom:0.5rem;
   cursor:pointer;
-  transition:0.3s;
 }
 
 .news-sidebar h2:hover{
@@ -140,32 +131,37 @@ button:hover{
 
 .news-sidebar p{
   color:hsl(233, 8%, 79%);
+  font-size:0.9rem;
   margin-bottom:2rem;
 }
 
 .news-sidebar h2:not(:first-of-type){
-  padding-top:2rem;
+  padding-top:1.5rem;
   border-top:1px solid hsl(236, 13%, 42%);
 }
 
-/*   ----------------------------------   Articles   ----------------------------------   */
-
+/*   ----------------------------------  Articles  ----------------------------------   */
 .articles{
   margin-top:4rem;
-  display:flex;
-  flex-direction:column;
+  display:grid;
+  grid-template-columns: repeat(3, 1fr);
   gap:2rem;
 }
 
 .article-card{
   display:flex;
   gap:1rem;
+  align-items:flex-start;
+}
+
+.card-img{
+  flex:0 0 100px;
 }
 
 .card-img img{
-  height:130px;
+  width:100%;
+  height:120px;
   object-fit:cover;
-  flex-shrink:0;
 }
 
 .article-text p:first-child{
@@ -175,10 +171,8 @@ button:hover{
 }
 
 .article-text h2{
-  font-size:1.1rem;
+  font-size:1rem;
   margin:0.5rem 0;
-  cursor:pointer;
-  transition:0.3s;
 }
 
 .article-text h2:hover{
@@ -187,95 +181,60 @@ button:hover{
 
 .article-text p:last-child{
   color:hsl(236, 13%, 42%);
-}
-
-/*   ----------------------------------   Footer   ----------------------------------   */
-
-.attribution{
-  text-align:center;
-  margin:2rem 0;
   font-size:0.9rem;
 }
 
-/*   ----------------------------------   Desktop   ----------------------------------   */
-
-@media (min-width: 48rem){
-
-  .top-section{
-    flex-direction:row;
-    align-items:flex-start;
-  }
-
-  .hero{
-    flex:2.2;
-  }
-
-  .news-sidebar{
-    flex:1;
-    max-width:350px;
-  }
-
-  .hero::before{
-    background-image:url("image-web-3-desktop.jpg");
-    height:320px;
-  }
-
-  .hero-content{
-    flex-direction:row;
-  }
-
-  .articles{
-    flex-direction:row;
-  }
-
-  .article-card{
-    align-items: stretch;
-  }
-
-  .card-img{
-    width: 35%;
-    flex-shrink: 0;
-  }
-
-  .card-img img{
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-  }
-
-  .article-text{
-    width: 65%;
-  }
+/*   ----------------------------------  Footer  ----------------------------------   */
+.attribution{
+  text-align:center;
+  margin:2rem 0;
+  font-size:0.8rem;
 }
 
-/*   ----------------------------------   Mobile Menu   ----------------------------------   */
-
-@media (max-width: 47.9rem){
+/*   ----------------------------------  Mobile  ----------------------------------   */
+@media (max-width: 768px){
 
   .menu-btn{
     display:block;
-    z-index:1001;
   }
 
   .linki{
-    position:fixed;
-    top:0;
-    right:-100%;
-    width:70%;
-    height:100vh;
+    position:absolute;
+    top:100%;
+    right:0;
     background:white;
     flex-direction:column;
-    padding:8rem 2rem;
-    transition:0.3s;
-    z-index:1000;
+    width:70%;
+    padding:2rem;
+    transform:translateX(120%);
+    transition:0.3s ease;
+    box-shadow:0 10px 30px rgba(0,0,0,0.2);
   }
 
   .linki.active{
-    right:0;
+    transform:translateX(0);
   }
 
-  .linki a{
-    font-size:1.3rem;
-    color:black;
+  .top-section{
+    grid-template-columns:1fr;
+  }
+
+  .hero-content{
+    grid-template-columns:1fr;
+  }
+
+  .articles{
+    grid-template-columns:1fr;
+  }
+
+  .hero::before{
+    background-image:url("image-web-3-mobile.jpg");
+  }
+}
+
+/*   ----------------------------------  Reduced Motion  ----------------------------------   */
+@media (prefers-reduced-motion: reduce){
+  *{
+    transition:none !important;
   }
 }
