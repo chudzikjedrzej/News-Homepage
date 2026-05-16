@@ -209,7 +209,7 @@ button:hover{
 }
 
 /*   ----------------------------------  Mobile  ----------------------------------   */
-@media (max-width: 48rem){
+@media (max-width: 75rem){
 
   .menu-btn{
     display:block;
